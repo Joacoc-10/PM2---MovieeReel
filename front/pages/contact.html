@@ -2,26 +2,70 @@
 <html lang="es">
   <head>
     <meta charset="UTF-8" />
-    <link rel="stylesheet" href="/front/styles/reset.css">
-    <link rel="stylesheet" href="/front/styles/styles.css">
+    <link rel="stylesheet" href="../styles/reset.css">
+    <link rel="stylesheet" href="../styles/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Comfortaa:wght@300..700&display=swap" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>PelisParaTodos</title>
+    <title>MovieReel</title>
   </head>
   <body>
     <header>
-      <img src="/front/assets/logo_pop-removebg-preview.png" alt="Logo"> 
+      <img src="../assets/logo_cine_cintas.png" alt="Logo"> 
+      <h1>MovieReel</h1>
       <nav>
         <ul>
-          <li><a href="/front/index.html">Inicio</a></li>
+          <li><a href="../index.html">Inicio</a></li>
           <li><a href="./about.html">Sobre mí</a></li>
           <li><a href="./contact.html">Contacto</a></li>
         </ul>
       </nav>
     </header>
     <main>
-      <h1>Contacto</h1>
-   
+      <section>
+        <h2>Contacto</h2>
+        
+        <div class="informacion_contacto">
+          <p>Ponte en contacto conmigo y deja tu opinion sobre mi pagina web</p>
+          <h3>Informacion de Contacto:</h3>
+          <address>
+            <ul>
+              <li>
+                <strong>Teléfono:</strong>
+                <a class="numero" href="tel: +34624789443">+34 624 789 443</a>
+              </li>
+              <li>
+                <strong>Email:</strong>
+                <a class="numero" href="mailto:joacoc-10@hotmail.com">joacoc-10@hotmail.com</a>
+              </li>
+            </ul>
+          </address>
+        </div>
 
+        <div class="caja_comentario">
+          <h3>Dejame tu comentario</h3>
+          <form action="/procesar-comentario" method="post">
+            <div>
+              <label for="nombre">Nombre:</label>
+              <input type="text" id="nombre" name="nombre">
+            </div>
+            <div>
+              <label for="apellido">Apellido:</label>
+              <input type="text" id="apellido" name="apellido">
+            </div>
+            <div>
+              <label for="email">Email:</label>
+              <input type="email" id="email" name="email">
+            </div>
+            <div>
+              <label for="comentario">Comentario:</label>
+              <textarea id="comentario" name="comentario" rows="5"></textarea>
+            </div>
+              <button type="submit">Enviar comentario</button>
+          </form>
+        
+      </section>
     </main>
    
   </body>
