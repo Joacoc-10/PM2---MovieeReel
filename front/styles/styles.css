@@ -1,5 +1,6 @@
 body{
   background:  #536976;
+  /* background: linear-gradient(to left, #bdc3c7, #384f66); */
 }
 
 header{
@@ -22,6 +23,8 @@ header > img{
 
 header > nav {
   margin-left: auto;
+  text-align: center;
+  align-items: center;
 }
 
 header > nav> ul {
@@ -43,7 +46,7 @@ h2{
   font-family: "Bangers", system-ui;
   font-weight: 400;
   font-style: normal;
-  font-size: 40px;
+  font-size: 45px;
   margin-top: 0.5em;
   margin-bottom: 1em;
   margin-left: 0.2em;
@@ -76,7 +79,7 @@ h2{
   display: flex;
   justify-content: space-around;
   background-color: rgba(255, 255, 255, 0.1); 
-  border-radius: 8px;
+  /* border-radius: 20px; */
 }
 
 .tarjetas {
@@ -104,6 +107,7 @@ h2{
   filter: grayscale(100%);
   transition: filter 0.5s;
 }
+
 .tarjetas > img:hover{
   filter: grayscale(0%);
 }
@@ -129,6 +133,7 @@ h2{
   position:relative;
   overflow: hidden;
   border: 1px solid black;
+  border-radius: 5px;
 }
 
 .tarjeta_pelis > img{
@@ -222,15 +227,12 @@ h2{
   border: 1px solid rgb(12, 12, 12);
   padding: 1.5em;
   margin-bottom: 1em; 
-  /* display: flex;
-  flex-direction: column; */
-  /* text-align:end; */
   background-color: rgba(0, 0, 0, 0.2); 
   border-radius: 5px;
   font-family: "Comfortaa", sans-serif;
   font-optical-sizing: auto;
   font-style: normal;
-  width: 50%;
+  width: 70%;
   margin: auto;
   margin-top: 3em; 
 }
@@ -239,6 +241,7 @@ h2{
   font-size: 25px;
   margin-bottom: 1em;
   text-align: center;
+  font-family: "Comfortaa", sans-serif;
 }
 
 .caja_comentario > form {
@@ -267,13 +270,13 @@ h2{
   border: 1px solid rgb(12, 12, 12);
   border-radius: 3px;
   background-color: rgba(0, 0, 0, 0.2); 
+  color: black;
 }
 
 .caja_comentario > form > button {
 width: 20%;
-font-family: "Comfortaa", sans-serif;
 align-self: flex-end;
-background-color: rgba(32, 31, 31, 0.1);
-border: 1px solid rgb(12, 12, 12);
-padding: 4px;
-}
+font-family: "Comfortaa", sans-serif;
+color: black;
+} 
+
