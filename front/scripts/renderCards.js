@@ -1,8 +1,10 @@
-
-const contenedorPeliculas = document.getElementById('contenedor_peliculas');
-
 const renderCards = (data) => {
+  const contenedorPeliculas = document.querySelector('#contenedor_peliculas');
 
+  if (!contenedorPeliculas){
+    console.log('El contenedor de peliculas no existe en el DOM')
+    return;
+  }
   data.forEach((pelicula) => {
     const divContenedorTarjetas = document.createElement('div');
     divContenedorTarjetas.classList.add('tarjeta_pelis');
