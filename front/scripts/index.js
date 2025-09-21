@@ -1,5 +1,5 @@
-const { formValidation } = require("./formControl");
-const { fetchData } = require("./services");
+import { formValidation } from "./formControl";
+import { fetchData } from "./services";
 
 document.addEventListener("DOMContentLoaded", () => {
   formValidation();

@@ -1,6 +1,8 @@
+// Ruta: front/scripts/renderCards.js
+
 const contenedorPeliculas = document.querySelector("#contenedor_peliculas");
 
-const renderCards = (data) => {
+export const renderCards = (data) => {
   if (contenedorPeliculas) {
     data.forEach((pelicula) => {
       const divContenedorTarjetas = document.createElement("div");
@@ -47,5 +49,3 @@ const renderCards = (data) => {
     });
   }
 };
-
-module.exports = { renderCards };

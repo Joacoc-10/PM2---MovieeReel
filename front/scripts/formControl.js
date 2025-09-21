@@ -1,4 +1,4 @@
-const { postMovie } = require("./services");
+import { postMovie } from "./services.js";
 
 const formValidation = () => {
   const forms = document.querySelectorAll(".needs-validation");
@@ -8,10 +8,17 @@ const formValidation = () => {
       "submit",
       (event) => {
         event.preventDefault();
-        if (!form.checkVisibility()) {
+        
+        // CORRECCIÓN: Declara la variable aquí para que siempre esté definida
+        let hasError = false; 
+
+        if (!form.checkValidity()) {
           event.stopPropagation();
+          hasError = true;
         }
+
         form.classList.add("was-validated");
+
         const selectedGenres = Array.from(
           document.querySelectorAll('input[name="genre"]:checked')
         ).map((checkbox) => checkbox.value);
@@ -26,17 +33,17 @@ const formValidation = () => {
           genreError.textContent = "";
           genreError.classList.remove("text-danger");
         }
-
-        const newMovie = {
-          title: document.querySelector("#tituloId").value,
-          rate: document.querySelector("#valoracionId").value,
-          duration: document.querySelector("#duracionId").value,
-          poster: document.querySelector("#posterId").value,
-          director: document.querySelector("#directorId").value,
-          year: document.querySelector("#anoId").value,
-          genre: selectedGenres,
-        };
+        
         if (!hasError) {
+          const newMovie = {
+            title: document.querySelector("#tituloId").value,
+            rate: document.querySelector("#valoracionId").value,
+            duration: document.querySelector("#duracionId").value,
+            poster: document.querySelector("#posterId").value,
+            director: document.querySelector("#directorId").value,
+            year: document.querySelector("#anoId").value,
+            genre: selectedGenres,
+          };
           postMovie(newMovie);
         }
       },
@@ -44,4 +51,5 @@ const formValidation = () => {
     );
   });
 };
-module.exports = { formValidation };
+
+export { formValidation };

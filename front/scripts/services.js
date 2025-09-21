@@ -1,5 +1,5 @@
-const axios = require("axios");
-const { renderCards } = require("./renderCards");
+import axios from "axios";
+import { renderCards } from "./renderCards.js";
 
 // // $.get('https://students-api.up.railway.app/movies', (data) => {
 // // renderCards(data);
@@ -25,4 +25,5 @@ const postMovie = async (newMovie) => {
   }
 };
 
-module.exports = { fetchData, postMovie };
+export { fetchData, postMovie };
+
