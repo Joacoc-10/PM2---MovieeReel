@@ -1,17 +1,13 @@
 import axios from "axios";
 import { renderCards } from "./renderCards.js";
 
-// // $.get('https://students-api.up.railway.app/movies', (data) => {
-// // renderCards(data);
-// // });
-
-
-// const API_URL = "http://localhost:3000/movies";
-const API_URL = "https://pm2-movieereel-production.up.railway.app"
+// Esta línea lee la variable de entorno de Vercel
+const API_URL = process.env.API_URL;
 
 const fetchData = async () => {
   try {
-    const response = await axios.get(API_URL);
+    // Agregamos la ruta '/movies' aquí
+    const response = await axios.get(`${API_URL}/movies`);
     const data = response.data;
     renderCards(data);
   } catch (err) {
@@ -21,9 +17,9 @@ const fetchData = async () => {
 
 const postMovie = async (newMovie) => {
   try {
-    const res = await axios.post(API_URL, newMovie);
+    // Agregamos la ruta '/movies' aquí
+    const res = await axios.post(`${API_URL}/movies`, newMovie);
     console.log(res);
-    // return res
   } catch (err) {
     console.log(err);
   }
