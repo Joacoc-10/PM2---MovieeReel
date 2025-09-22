@@ -3,49 +3,53 @@
 const contenedorPeliculas = document.querySelector("#contenedor_peliculas");
 
 export const renderCards = (data) => {
-  if (contenedorPeliculas) {
-    data.forEach((pelicula) => {
-      const divContenedorTarjetas = document.createElement("div");
-      divContenedorTarjetas.classList.add("tarjeta_pelis");
+  if (!contenedorPeliculas) return;
 
-      const tituloPeli = document.createElement("h3");
-      tituloPeli.innerHTML = pelicula.title;
+  // 🔹 Limpiar contenedor antes de agregar nuevas tarjetas
+  contenedorPeliculas.innerHTML = "";
 
-      const posterPeli = document.createElement("img");
-      posterPeli.src = pelicula.poster;
+  data.forEach((pelicula) => {
+    const divContenedorTarjetas = document.createElement("div");
+    divContenedorTarjetas.classList.add("tarjeta_pelis");
 
-      const anoPeli = document.createElement("p");
-      anoPeli.innerHTML = `Año: ${pelicula.year}`;
+    const tituloPeli = document.createElement("h3");
+    tituloPeli.innerHTML = pelicula.title;
 
-      const directorPeli = document.createElement("p");
-      directorPeli.innerHTML = `Director: ${pelicula.director}`;
+    const posterPeli = document.createElement("img");
+    posterPeli.src = pelicula.poster;
 
-      const duracionPeli = document.createElement("p");
-      duracionPeli.innerHTML = `Duración: ${pelicula.duration}`;
+    const anoPeli = document.createElement("p");
+    anoPeli.innerHTML = `Año: ${pelicula.year}`;
 
-      const generoPeli = document.createElement("p");
-      generoPeli.innerHTML = `Genero: ${pelicula.genre}`;
+    const directorPeli = document.createElement("p");
+    directorPeli.innerHTML = `Director: ${pelicula.director}`;
 
-      const ratePeli = document.createElement("p");
-      ratePeli.innerHTML = `Puntuacion: ${pelicula.rate}`;
+    const duracionPeli = document.createElement("p");
+    duracionPeli.innerHTML = `Duración: ${pelicula.duration}`;
 
-      const divContenedorInfo = document.createElement("div");
-      divContenedorInfo.classList.add("info_pelicula");
-      divContenedorInfo.appendChild(anoPeli);
-      divContenedorInfo.appendChild(directorPeli);
-      divContenedorInfo.appendChild(duracionPeli);
-      divContenedorInfo.appendChild(generoPeli);
-      divContenedorInfo.appendChild(ratePeli);
+    const generoPeli = document.createElement("p");
+    generoPeli.innerHTML = `Género: ${pelicula.genre.join(", ")}`;
 
-      const divTituloInfoContainer = document.createElement("div");
-      divTituloInfoContainer.classList.add("titulo_info_container");
-      divTituloInfoContainer.appendChild(tituloPeli);
-      divTituloInfoContainer.appendChild(divContenedorInfo);
+    const ratePeli = document.createElement("p");
+    ratePeli.innerHTML = `Puntuación: ${pelicula.rate}`;
 
-      divContenedorTarjetas.appendChild(posterPeli);
-      divContenedorTarjetas.appendChild(divTituloInfoContainer);
+    const divContenedorInfo = document.createElement("div");
+    divContenedorInfo.classList.add("info_pelicula");
+    divContenedorInfo.appendChild(anoPeli);
+    divContenedorInfo.appendChild(directorPeli);
+    divContenedorInfo.appendChild(duracionPeli);
+    divContenedorInfo.appendChild(generoPeli);
+    divContenedorInfo.appendChild(ratePeli);
 
-      contenedorPeliculas.appendChild(divContenedorTarjetas);
-    });
-  }
+    const divTituloInfoContainer = document.createElement("div");
+    divTituloInfoContainer.classList.add("titulo_info_container");
+    divTituloInfoContainer.appendChild(tituloPeli);
+    divTituloInfoContainer.appendChild(divContenedorInfo);
+
+    divContenedorTarjetas.appendChild(posterPeli);
+    divContenedorTarjetas.appendChild(divTituloInfoContainer);
+
+    contenedorPeliculas.appendChild(divContenedorTarjetas);
+  });
 };
+
