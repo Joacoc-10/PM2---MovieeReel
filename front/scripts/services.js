@@ -7,7 +7,7 @@ import { renderCards } from "./renderCards.js";
 
 
 // const API_URL = "http://localhost:3000/movies";
-const API_URL = "https://pm2-movieereel-production.up.railway.app/movies"
+const API_URL = "https://pm2-movieereel-production.up.railway.app"
 
 const fetchData = async () => {
   try {
