@@ -4,10 +4,12 @@ import { renderCards } from "./renderCards.js";
 // // $.get('https://students-api.up.railway.app/movies', (data) => {
 // // renderCards(data);
 // // });
+// const API_URL = "http://localhost:3000/movies";
+const API_URL = "https://pm2-movieereel-production.up.railway.app/movies"
 
 const fetchData = async () => {
   try {
-    const response = await axios.get("http://localhost:3000/movies");
+    const response = await axios.get(API_URL);
     const data = response.data;
     renderCards(data);
   } catch (err) {
@@ -17,7 +19,7 @@ const fetchData = async () => {
 
 const postMovie = async (newMovie) => {
   try {
-    const res = await axios.post("http://localhost:3000/movies", newMovie);
+    const res = await axios.post(API_URL, newMovie);
     console.log(res);
     // return res
   } catch (err) {
