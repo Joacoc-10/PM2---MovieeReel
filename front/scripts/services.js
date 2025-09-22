@@ -4,6 +4,8 @@ import { renderCards } from "./renderCards.js";
 // // $.get('https://students-api.up.railway.app/movies', (data) => {
 // // renderCards(data);
 // // });
+
+
 // const API_URL = "http://localhost:3000/movies";
 const API_URL = "https://pm2-movieereel-production.up.railway.app/movies"
 
