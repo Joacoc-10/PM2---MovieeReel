@@ -2,7 +2,7 @@ import axios from "axios";
 import { renderCards } from "./renderCards.js";
 
 // Esta línea lee la variable de entorno de Vercel
-const API_URL = process.env.API_URL;
+const API_URL = process.env.NEXT_PUBLIC_API_URL;
 
 const fetchData = async () => {
   try {
