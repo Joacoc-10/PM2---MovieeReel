@@ -1,4 +1,4 @@
-import { postMovie } from "./services.js";
+import { postMovie, fetchData } from "./services.js"; // Asegúrate de importar también fetchData
 
 const formValidation = () => {
   const forms = document.querySelectorAll(".needs-validation");
@@ -6,10 +6,10 @@ const formValidation = () => {
   Array.from(forms).forEach((form) => {
     form.addEventListener(
       "submit",
-      (event) => {
+      async (event) => { // <-- ¡Importante! Haz que la función sea asíncrona
+         console.log("¡El formulario se está intentando enviar!");
         event.preventDefault();
         
-        // CORRECCIÓN: Declara la variable aquí para que siempre esté definida
         let hasError = false; 
 
         if (!form.checkValidity()) {
@@ -44,7 +44,9 @@ const formValidation = () => {
             year: document.querySelector("#anoId").value,
             genre: selectedGenres,
           };
-          postMovie(newMovie);
+
+          await postMovie(newMovie); // <-- Espera a que la solicitud termine
+          fetchData(); // <-- Vuelve a cargar los datos para actualizar la vista
         }
       },
       false
