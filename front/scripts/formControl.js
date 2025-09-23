@@ -1,4 +1,4 @@
-import { postMovie, fetchData } from "./services.js"; // Asegúrate de importar también fetchData
+import { postMovie, fetchData } from "./services.js"; 
 
 const formValidation = () => {
   const forms = document.querySelectorAll(".needs-validation");
@@ -6,8 +6,8 @@ const formValidation = () => {
   Array.from(forms).forEach((form) => {
     form.addEventListener(
       "submit",
-      async (event) => { // <-- ¡Importante! Haz que la función sea asíncrona
-         console.log("¡El formulario se está intentando enviar!");
+      async (event) => { 
+        console.log("¡El formulario se está intentando enviar!");
         event.preventDefault();
         
         let hasError = false; 
@@ -37,16 +37,17 @@ const formValidation = () => {
         if (!hasError) {
           const newMovie = {
             title: document.querySelector("#tituloId").value,
-            rate: document.querySelector("#valoracionId").value,
+            rate: parseFloat(document.querySelector("#valoracionId").value),
             duration: document.querySelector("#duracionId").value,
             poster: document.querySelector("#posterId").value,
             director: document.querySelector("#directorId").value,
-            year: document.querySelector("#anoId").value,
+            year: parseInt(document.querySelector("#anoId").value),
             genre: selectedGenres,
           };
-
-          await postMovie(newMovie); // <-- Espera a que la solicitud termine
-          fetchData(); // <-- Vuelve a cargar los datos para actualizar la vista
+          
+          await postMovie(newMovie); 
+          
+          window.location.href = "../index.html"; 
         }
       },
       false
