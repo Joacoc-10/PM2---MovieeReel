@@ -3,9 +3,11 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
+  mode: 'production',
+
   entry: {
-    main: './front/scripts/index.js',
-    crearPelicula: './front/scripts/crearPelicula.js',
+    main: path.resolve(__dirname, 'front', 'scripts', 'index.js'),
+    crearPelicula: path.resolve(__dirname, 'front', 'scripts', 'crearPelicula.js'),
   },
 
   output: {
@@ -13,41 +15,24 @@ module.exports = {
     path: path.resolve(__dirname, 'public'),
   },
 
-  mode: 'development',
-
-  module: {
-    rules: [
-      {
-        test: /\.js$/,
-        exclude: /node_modules/,
-        use: {
-          loader: 'babel-loader',
-          options: {
-            presets: ['@babel/preset-env']
-          }
-        }
-      }
-    ]
-  },
-
   plugins: [
     new HtmlWebpackPlugin({
-      template: './front/index.html',
+      template: path.resolve(__dirname, 'front', 'index.html'),
       filename: 'index.html',
       chunks: ['main'],
     }),
     new HtmlWebpackPlugin({
-      template: './front/pages/crearPelicula.html',
+      template: path.resolve(__dirname, 'front', 'pages', 'crearPelicula.html'),
       filename: 'pages/crearPelicula.html',
       chunks: ['crearPelicula'],
     }),
     new CopyWebpackPlugin({
       patterns: [
-        { from: 'front/styles', to: 'styles' },
-        { from: 'front/pages/about.html', to: 'pages/about.html' },
-        { from: 'front/pages/contact.html', to: 'pages/contact.html' },
-        { from: 'front/assets', to: 'assets' },
+        { from: path.resolve(__dirname, 'front', 'styles'), to: 'styles' },
+        { from: path.resolve(__dirname, 'front', 'pages', 'about.html'), to: 'pages/about.html' },
+        { from: path.resolve(__dirname, 'front', 'pages', 'contact.html'), to: 'pages/contact.html' },
+        { from: path.resolve(__dirname, 'front', 'assets'), to: 'assets' },
       ],
     }),
-  ]
+  ],
 };
