@@ -4,32 +4,49 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
   entry: {
-    main: './scripts/index.js',
-    crearPelicula: './scripts/formControl.js',
+    main: './front/scripts/index.js',
+    crearPelicula: './front/scripts/crearPelicula.js',
   },
 
   output: {
-    path: path.resolve(__dirname, 'public'),
     filename: '[name].bundle.js',
+    path: path.resolve(__dirname, 'public'),
+  },
+
+  mode: 'development',
+
+  module: {
+    rules: [
+      {
+        test: /\.js$/,
+        exclude: /node_modules/,
+        use: {
+          loader: 'babel-loader',
+          options: {
+            presets: ['@babel/preset-env']
+          }
+        }
+      }
+    ]
   },
 
   plugins: [
     new HtmlWebpackPlugin({
-      template: './index.html',
+      template: './front/index.html',
       filename: 'index.html',
       chunks: ['main'],
     }),
     new HtmlWebpackPlugin({
-      template: './pages/crearPelicula.html',
+      template: './front/pages/crearPelicula.html',
       filename: 'pages/crearPelicula.html',
       chunks: ['crearPelicula'],
     }),
     new CopyWebpackPlugin({
       patterns: [
-        { from: 'styles', to: 'styles' },
-        { from: 'pages/about.html', to: 'pages/about.html' },
-        { from: 'pages/contact.html', to: 'pages/contact.html' },
-        { from: 'assets', to: 'assets' },
+        { from: 'front/styles', to: 'styles' },
+        { from: 'front/pages/about.html', to: 'pages/about.html' },
+        { from: 'front/pages/contact.html', to: 'pages/contact.html' },
+        { from: 'front/assets', to: 'assets' },
       ],
     }),
   ]
