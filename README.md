@@ -54,7 +54,6 @@ El objetivo era construir una **aplicación Full Stack** funcional, donde los us
 
 ## 🚧 Scripts Disponibles
 
-### Front End
 ```bash
 # Iniciar servidor de desarrollo
 npm start
